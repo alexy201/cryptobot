@@ -34,8 +34,8 @@ buy_amount = 0.2
 
 while True:
     price = float(auth_client.get_product_ticker(product_id="BTC-USD")['price'])
-    if price < buy_price:
+    if price <= buy_price:
         print("BUYING BTC")
         auth_client.buy(size=buy_amount, order_type="market", product_id="BTC-USD")
-    elif price > sell_price:
+    elif price >= sell_price:
         print("SELLING BTC")
